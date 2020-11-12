@@ -1,0 +1,458 @@
+// Import all SCSS variables and base styles
+@import "all_includes";
+
+*,
+::after,
+::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin gradient($direction, $color) {
+	background: #091523;
+	background: -webkit-linear-gradient($direction, $color);
+	background: -moz-linear-gradient($direction, $color);
+	background: -ms-linear-gradient($direction, $color);
+	background: -o-linear-gradient($direction, $color);
+	background: linear-gradient($direction, $color);
+}
+
+@mixin transition($timing, $type) {
+	-webkit-transition: all $timing $type;
+	-moz-transition: all $timing $type;
+	-o-transition: all $timing $type;
+	transition: all $timing $type;
+}
+
+$hero-bg-gradient: #091523, #0e253f;
+
+h1 {
+	font-size: $hero-heading;
+	font-weight: 700;
+
+	@media only screen and (max-width: 1200px) and (min-width: 1080px) {
+		font-size: 48px;
+	}
+
+	@media only screen and (max-width: 1079px) and (min-width: 960px) {
+		font-size: 40px;
+	}
+
+	@media only screen and (max-width: 959px) and (min-width: 320px) {
+		font-size: 32px;
+	}
+}
+
+h2 {
+	font-size: 32px;
+	font-weight: 700;
+
+	@media only screen and (min-width: 768px) {
+		font-size: 48px;
+	}
+}
+
+p,
+h4 {
+	font-size: $content;
+	line-height: 1.8;
+	font-weight: 400;
+
+	@media only screen and (max-width: 1200px) and (min-width: 1080px) {
+		font-size: 18px;
+	}
+
+	@media only screen and (max-width: 1079px) and (min-width: 320px) {
+		font-size: 16px;
+	}
+}
+
+html,
+body {
+	background: $white-color;
+	font-family: $primary-font;
+	font-size: $content;
+	color: $white-color;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+}
+
+.invert-text {
+	color: $content-text;
+}
+
+.row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	flex-direction: column;
+
+	@media only screen and (min-width: 768px) {
+		flex-direction: row;
+	}
+
+	&.center-align {
+		-webkit-box-align: center !important;
+		-ms-flex-align: center !important;
+		align-items: center !important;
+	}
+
+	&.full-height {
+		height: 100%;
+
+		@media only screen and (min-width: 1200px) {
+			min-height: 100vh;
+		}
+	}
+
+	.column {
+		@media only screen and (min-width: 768px) {
+			-webkit-box-flex: 0;
+			-ms-flex: 0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+
+	.column__mobile--hide {
+		display: none;
+
+		@media only screen and (min-width: 768px) {
+			display: block;
+		}
+	}
+
+	.column__mobile--full {
+		-ms-flex: 0 0 100%;
+		flex: 0 0 100%;
+		max-width: 100%;
+
+		@media only screen and (min-width: 768px) {
+			-ms-flex: 0 0 50%;
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1440px;
+	// padding-right: 15px;
+	// padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+
+	// @media (min-width: 576px) {
+	// 	max-width: 540px;
+	// }
+	// @media (min-width: 768px) {
+	// 	max-width: 720px;
+	// }
+	// @media (min-width: 992px) {
+	// 	max-width: 960px;
+	// }
+	// @media (min-width: 1200px) {
+	// 	max-width: 1140px;
+	// }
+	// @media (min-width: 1440px) {
+	// 	max-width: 1280px;
+	// }
+}
+
+.fixed-top {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 999;
+}
+
+.text-center {
+	text-align: center;
+}
+
+button,
+.button {
+	appearance: button;
+	-moz-appearance: button;
+	-webkit-appearance: button;
+}
+
+.text-section {
+	&__eyebrow {
+		font-family: $secondary-font;
+		margin: 15px 0;
+		color: $hero-eyebrow-text;
+	}
+	&__heading {
+		margin: 15px 0;
+	}
+	&__content {
+		margin: 15px 0;
+		padding-top: 10px;
+	}
+	&__cta {
+		padding-top: 40px;
+		.button {
+			font-size: 20px;
+			color: #fff;
+			box-sizing: border-box;
+			display: inline-block;
+			text-decoration: none;
+			transition: border 0.2s ease;
+
+			&:nth-child(1) {
+				margin-right: 15px;
+			}
+			&:nth-child(2) {
+				margin-left: 15px;
+			}
+
+			&:hover {
+				border-color: $hero-eyebrow-text;
+			}
+			@media only screen and (max-width: 1200px) and (min-width: 1080px) {
+				font-size: 16px;
+			}
+
+			@media only screen and (max-width: 1079px) and (min-width: 320px) {
+				font-size: 14px;
+			}
+		}
+		.button--rounded {
+			border: 1px solid #fff;
+			border-radius: 40px;
+			padding: 20px 30px;
+
+			@media only screen and (max-width: 1200px) and (min-width: 320px) {
+				padding: 15px;
+			}
+		}
+
+		.button--underline {
+			border-bottom: 3px solid #fff;
+			padding-bottom: 10px;
+		}
+	}
+}
+
+// End Globals
+
+.hero {
+	position: relative;
+	overflow: hidden;
+	@include gradient(to right, $hero-bg-gradient);
+
+	.column-left {
+		padding-top: 100px;
+		padding-bottom: 100px;
+
+		@media only screen and (max-width: 1079px) and (min-width: 320px) {
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+	}
+
+	&__text {
+		margin-top: 100px;
+		padding-left: 150px;
+		padding-right: 90px;
+
+		@media only screen and (max-width: 1079px) and (min-width: 768px) {
+			padding-left: 100px;
+		}
+
+		@media only screen and (max-width: 959px) and (min-width: 640px) {
+			padding-left: 60px;
+			padding-right: 30px;
+		}
+
+		@media only screen and (max-width: 639px) and (min-width: 320px) {
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+
+	&__image {
+		position: absolute;
+		left: 48%;
+		top: auto;
+		z-index: 2;
+		@media only screen and (max-width: 1200px) and (min-width: 768px) {
+			bottom: 0;
+		}
+
+		img {
+			margin-bottom: -110px;
+			@media only screen and (max-width: 1200px) and (min-width: 768px) {
+				max-width: 100%;
+				margin-bottom: -30px;
+			}
+		}
+	}
+}
+.header {
+	&__nav {
+		@include transition(0.2s, ease);
+	}
+
+	&__logo img {
+		@include transition(0.5s, ease);
+	}
+
+	&__container {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		-webkit-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		padding: 50px 60px 25px 90px;
+		@include transition(0.2s, ease);
+
+		@media only screen and (max-width: 1079px) and (min-width: 768px) {
+			padding: 30px 45px;
+		}
+
+		@media only screen and (max-width: 768px) {
+			padding: 30px;
+		}
+	}
+
+	&__navbar--toggler {
+		cursor: pointer;
+		border: none;
+		padding: 10px 6px;
+		outline: none !important;
+		background-color: transparent;
+
+		span {
+			background: #fff;
+			display: block;
+			width: 27px;
+			height: 4px;
+			border-radius: 1px;
+
+			& + span {
+				margin-top: 8px;
+				width: 37px;
+			}
+			& + span + span {
+				width: 25px;
+			}
+		}
+	}
+}
+
+/* Fixed header on scroll */
+.header__nav--fixed {
+	background: rgba(0, 0, 0, 0.9);
+	box-shadow: 0px 1px 27px -3px rgba(0, 0, 0, 0.2);
+
+	.header__container {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.header__logo img {
+		max-width: 150px;
+	}
+}
+
+.about {
+	@media only screen and (min-width: 768px) {
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	@media only screen and (min-width: 1080px) {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	.text-section__eyebrow {
+		color: $white-panel-eyebrow-text;
+	}
+
+	.text-section {
+		margin-left: 30px;
+		margin-right: 30px;
+		max-width: 510px;
+	}
+
+	&__image--wrap {
+		padding: 30px;
+
+		@media only screen and (min-width: 768px) {
+			padding-left: 0 40px;
+		}
+	}
+
+	&__image {
+		display: block;
+		height: auto;
+		max-width: 90%;
+		margin: 0 auto;
+
+		@media only screen and (min-width: 768px) {
+			max-width: 100%;
+		}
+	}
+}
+
+.contact {
+	&__bg {
+		color: #fff;
+		padding: 50px 0;
+		background-image: url("../../../assets/images/Phone.jpg");
+		background-size: cover;
+		background-attachment: fixed;
+		background-position: 50% 50%;
+		background-repeat: no-repeat;
+
+		@media only screen and (min-width: 768px) {
+			padding: 80px 0 100px 0;
+			height: 480px;
+			min-height: 480px;
+		}
+	}
+
+	&__row--align-center {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.text-section {
+		max-width: 400px;
+		margin-left: 30px;
+		margin-right: 30px;
+
+		&__cta {
+			padding-top: 25px;
+		}
+	}
+}
+
+.footer {
+	background-color: #010203;
+
+	&__row--align-center {
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__column {
+		padding: 30px;
+	}
+}
