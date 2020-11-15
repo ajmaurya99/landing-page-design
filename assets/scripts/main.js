@@ -39,6 +39,24 @@ var mainJs = function () {
 		menuToggle.addEventListener("click", function () {
 			this.classList.toggle("open");
 			menuItems.classList.toggle("show");
+
+			var toggleAriaExpand = this.getAttribute("aria-expanded"); // Toggle the aria-expanded value for the Menu Toggle button.
+			if (toggleAriaExpand == "true") {
+				toggleAriaExpand = "false";
+			} else {
+				toggleAriaExpand = "true";
+			}
+			this.setAttribute("aria-expanded", toggleAriaExpand);
+
+			var menuAriaHidden = menuItems.getAttribute("aria-hidden"); // Toggle the aria-hidden value for the Menu Items.
+			if (menuAriaHidden == "true") {
+				menuAriaHidden = "false";
+			} else {
+				menuAriaHidden = "true";
+			}
+			menuItems.setAttribute("aria-hidden", menuAriaHidden);
+
+
 		});
 
 		/**
@@ -84,7 +102,7 @@ var mainJs = function () {
 
 			/**
 			 * Easing Functions
-			 * http://www.gizma.com/easing/\
+			 * http://www.gizma.com/easing/
 			 * @param {Number, Number, Number, Number}
 			 */
 			function ease(t, b, c, d) {
