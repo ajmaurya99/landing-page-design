@@ -19,7 +19,7 @@
 <body>
     <!-- Header -->
     <header class="header">
-        <nav class="header__nav fixed-top" id="header__nav--js">
+        <div class="header__nav fixed-top" id="header__nav--js">
             <div class="container header__container">
 
                 <!-- Brand Logo -->
@@ -28,21 +28,44 @@
                 </a>
                 <!-- / -->
 
-                <!-- Navbar Toggle -->
-                <button class="header__navbar--toggler collapsed" type="button" data-toggle="collapse"
-                    data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <!-- Menu Toggle -->
+                <button class="header__menu--toggler" id="header__toggle-btn--js" type="button" data-target="#menu"
+                    aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
                 <!-- / -->
 
-                <!-- Top Navbar -->
-
+                <!-- Top Menu -->
+                <nav class="header__menu" id="header__menu--js">
+                    <ul>
+                        <li>
+                            <div>
+                                <a href="javascript:void(0)">News</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#about" data-scrollto="#about">About</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="javascript:void(0)">Products</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <a href="#contact" data-scrollto="#contact">Contact</a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
                 <!-- / -->
 
             </div>
-        </nav>
+        </div>
     </header>
     <!-- Header End -->
 
@@ -65,7 +88,7 @@
                                 <div class="text-section__cta">
                                     <a href="javascript:void" class="button button--rounded">Downlad Now</a>
 
-                                    <a href="javascript:void" class="button button--underline">Learn More</a>
+                                    <a href="#about" data-scrollto="#about" class="button button--underline">Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +102,7 @@
         <!-- Hero Section End -->
 
         <!-- About Section Start -->
-        <section class="about invert-text">
+        <section class="about invert-text" id="about">
             <div class="container">
                 <div class="row center-align">
                     <div class="column column-left">
@@ -108,7 +131,7 @@
         <!-- About Section End -->
 
         <!-- Contact Section Start -->
-        <section class="contact contact__bg">
+        <section class="contact contact__bg" id="contact">
             <div class="container">
                 <div class="row contact__row--align-center">
                     <div class="column-full">
@@ -139,7 +162,8 @@
         <div class="container">
             <div class="row footer__row--align-center">
                 <div class="column-full footer__column">
-                    <img src="assets/svg/10up_Logo.svg" title="10up Logo" alt="10up Logo">
+                    <a href="https://10up.com/" target="_blank"><img src="assets/svg/10up_Logo.svg" title="10up Logo"
+                            alt="10up Logo"></a>
                 </div>
             </div>
         </div>

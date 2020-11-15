@@ -53,11 +53,11 @@ exports.default = parallel(processCss);
  * watcher added for js and css files.
  * @ignoreInitial : Runs for the first time also when gulp command is run
  */
-// exports.default = function () {
-//   watch("assets/scripts/*.js", { events: "all", ignoreInitial: false }, processJs);
-//   watch(
-//     ["assets/scss/frontend/**/*.scss"],
-//     { events: "all", ignoreInitial: false },
-//     processCss
-//   );
-// }; 
+exports.default = function () {
+  watch("assets/scripts/*.js", { events: "all", ignoreInitial: false }, processJs);
+  watch(
+    ["assets/scss/frontend/**/*.scss"],
+    { events: "all", ignoreInitial: false },
+    processCss
+  );
+}; 
