@@ -109,6 +109,14 @@ let mainJs = function () {
 
 					// Add the active class to the current/clicked menu item
 					this.parentElement.className += ' active';
+
+					if (window.innerWidth <= 768) {
+						// Close the open menu if mobile
+						menuToggle.classList.toggle('open');
+						menuItems.classList.toggle('show');
+						updateAriaValue(this, 'aria-expanded'); // Toggle the aria-expanded value for the Menu Toggle button.
+						updateAriaValue(menuItems, 'aria-hidden'); // Toggle the aria-hidden value for the Menu Items.
+					}
 				});
 			}
 		}
