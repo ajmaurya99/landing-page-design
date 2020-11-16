@@ -60,6 +60,9 @@ exports.default = parallel(processCss);
  * watcher added for js and css files.
  * @ignoreInitial : Runs for the first time also when gulp command is run
  */
+
+// Uncomment the below code to enable the watcher.
+
 // exports.default = function () {
 //   watch(
 //     'assets/scripts/*.js',
